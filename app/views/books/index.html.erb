@@ -1,7 +1,17 @@
+<% if @create_book.errors.any? %>
+  <div class="text-danger", id="error_explanation">
+    <h2><%= pluralize(@create_book.errors.count, "error") %> prohibited this book from being saved:</h2>
+    <ul>
+      <% @create_book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<%end%>
 <div class="container">
   <div class="row">
-    <%= render 'layouts/user_info', userinfo: @current_user, create_book: @create_book %>
-    <div class="col-8 offset-1">
+    <%= render 'layouts/user_info', userinfo: @c_user, create_book: @create_book %>
+    <div class="col-md-8 offset-md-1">
       <h2>Books</h2>
       <table class="table">
         <tr><th></th><th>title</th><th>opinion</th></tr>
