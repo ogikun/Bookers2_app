@@ -1,23 +1,27 @@
 <div class="col-md-3">
-    <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", size:"100x100" %>
     <h2>User info</h2>
+      <div class="m-2">
+        <%= attachment_image_tag userinfo, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", size:"100x100" %>
+      </div>
     <table class="table">
       <tr><th>name</th><th><%= userinfo.name %></th></tr>
       <tr><th>introduction</th><th><%= userinfo.introduction %></th></tr>
     </table>
-    <%= link_to edit_user_path(userinfo.id), class: "btn btn-block btn-outline-dark btn-sm" do %>
-      <i class="fas fa-user-cog"></i>
-    <% end %>
+    <div class="my-3">
+      <%= link_to edit_user_path(userinfo.id), class: "btn btn-block btn-outline-dark btn-sm" do %>
+        <i class="fas fa-user-cog"></i>
+      <% end %>
+    </div>
     <h2>New book</h2>
-    <div class="col-md-10 mx-auto">
+    <div class="mx-auto">
       <%= form_with model:create_book, local: true do |f| %>
         <div class="form-group">
           <label for="title">title</label><br>
-          <%= f.text_field :title, id:"title" %>
+          <%= f.text_field :title, id:"title", size: 30 %>
         </div>
         <div class="form-group">
           <label for="body">opinion</label><br>
-          <%= f.text_area :body, id:"body" %>
+          <%= f.text_area :body, id:"body", size: "30x0" %>
         </div>
           <%= f.submit "Create Book", class: "btn btn-success" %>
       <% end %>
