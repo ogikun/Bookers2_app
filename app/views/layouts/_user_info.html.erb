@@ -1,14 +1,14 @@
 <div class="col-md-3">
     <h2>User info</h2>
       <div class="m-2">
-        <%= attachment_image_tag userinfo, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", size:"100x100" %>
+        <%= attachment_image_tag user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", size:"100x100" %>
       </div>
     <table class="table">
-      <tr><th>name</th><th><%= userinfo.name %></th></tr>
-      <tr><th>introduction</th><th><%= userinfo.introduction %></th></tr>
+      <tr><th>name</th><th><%= user.name %></th></tr>
+      <tr><th>introduction</th><th><%= user.introduction %></th></tr>
     </table>
     <div class="my-3">
-      <%= link_to edit_user_path(userinfo.id), class: "btn btn-block btn-outline-dark btn-sm" do %>
+      <%= link_to edit_user_path(user.id), class: "btn btn-block btn-outline-dark btn-sm" do %>
         <i class="fas fa-user-cog"></i>
       <% end %>
     </div>
